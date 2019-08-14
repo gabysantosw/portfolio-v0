@@ -1,0 +1,195 @@
+// _utils
+// colorbook
+$dark: hsl(180, 0%, 15%);
+$light-dark: hsl(180, 0%, 20%);
+$light: hsl(180, 10%, 98%);
+$light-neutro: hsl(180, 30%, 80%);
+
+$primary: hsl(180, 100%, 40%);
+$dark-primary: hsl(180, 80%, 20%);
+$secondary: hsl(335, 100%, 60%);
+$dark-secondary: hsl(335, 80%, 20%);
+
+$main-spacing: 1rem;
+$main-radius: .5rem;
+
+@mixin width-control {
+  box-sizing: border-box;
+  width: 80rem;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+// animation 
+
+@keyframes stretch {
+	0% {
+    transform: scale3d(1.1, 1, 1);
+  }
+
+  25% {
+    transform: scale3d(.9, 1.1, 1);
+  }
+
+
+  50% {
+    transform: scale3d(.8, 1.3, 1);
+  }
+
+
+  75% {
+    transform: scale3d(.8, 1.1, 1);
+  }
+
+  100% {
+    transform: scale3d(1.1, 1, 1);
+  }
+}
+
+// _base 
+// reset
+body, h1, h2, h3, p {
+  margin: 0;
+}
+
+button {
+  border: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+// base 
+body {
+  color: $light-neutro;
+  font-family: 'Fira Code', monospace;
+  background-color: $dark;
+}
+
+section, footer {
+  @include width-control;
+}
+
+section {
+
+  &:not(:first-child) {
+    margin-top: $main-spacing + 3rem;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: $main-spacing;
+  }
+}
+
+::selection {
+  background-color: $secondary;
+}
+
+// _pages
+// main
+.main {
+  padding: $main-spacing;
+  background-image: 
+    url(../assets/waves-group.svg),
+    url(../assets/waves-group.svg);
+  background-size: 10rem;
+  background-attachment: fixed;
+  background-position: 110% 25vh, -10% 10vh;
+  background-repeat: repeat-y;
+  position: relative;
+
+  &::after {
+    content: '';
+    width: 100%;
+    height: .4rem;
+    background-color: $dark-primary;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.hero {
+  min-height: calc(100vh - #{$main-spacing * 2});
+  display: flex;
+  flex-direction: column;
+
+  &__heading {
+    max-width: 18ch;
+    color: $light;
+    margin-top: auto;
+    margin-bottom: 1em;
+  }
+
+  &__sub-heading {
+    color: $light-neutro;
+    font-weight: 100;
+    font-size: 1rem;
+  }
+
+  &__text {
+    max-width: 58ch;
+    margin-bottom: 1em;
+  }
+
+  &__link {
+    align-self: center;    
+    margin-top: auto;
+    padding: 1rem 2rem;
+    border-radius: $main-radius;
+    background-color: $primary;
+    // background-image: 
+    //   url(../assets/waves.svg);
+    // background-size: 30%;
+    color: $dark;
+    font-family: inherit;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-decoration: none;
+    transform: translateY($main-spacing + .4rem);
+    transition: opacity .4s ease-out, transform .4s ease-out;
+    position: relative;
+    transform-style: preserve-3d;
+    z-index: 1;
+    
+    &::after {
+      content: '';
+      backface-visibility: hidden;
+      width: 100%;
+      height: .4rem;
+      border-radius: 0 0 $main-radius $main-radius;
+      background-color: $dark-primary;
+      transform: scale(.85) translateZ(-1px);
+      position: absolute;
+      bottom: -.4rem;
+      left: 0;
+    }
+
+    &:hover {
+      cursor: pointer; 
+      transform: translateY($main-spacing + .4rem) scale(1.05);
+      opacity: .5;
+    }
+  }
+}
+
+.projects { 
+  // background: red;
+  padding-top: 7rem;
+  position: relative;
+  top: -7rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-gap: 2rem;
+}
+
+@import 'card';
+
+.footer {
+  padding: $main-spacing;
+  background-color: $dark-primary;
+  font-size: .8rem;
+}
