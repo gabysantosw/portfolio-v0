@@ -1,0 +1,129 @@
+// base 
+body {
+  color: $light-neutro;
+  font-family: 'Fira Code', monospace;
+  background-color: $dark;
+}
+
+section, footer {
+  @include width-control;
+}
+
+section {
+
+  &:not(:first-child) {
+    margin-top: $main-spacing + 3rem;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: $main-spacing;
+  }
+}
+
+::selection {
+  background-color: $secondary;
+}
+
+
+// page
+.main {
+  padding: $main-spacing;
+  background-image: 
+    url(../assets/waves-group.svg),
+    url(../assets/waves-group.svg);
+  background-size: 10rem;
+  background-attachment: fixed;
+  background-position: 110% 25vh, -10% 10vh;
+  background-repeat: repeat-y;
+  position: relative;
+
+  &::after {
+    content: '';
+    width: 100%;
+    height: .4rem;
+    background-color: $dark-primary;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.hero {
+  min-height: calc(100vh - #{$main-spacing * 2});
+  display: flex;
+  flex-direction: column;
+
+  &__heading {
+    max-width: 18ch;
+    color: $light;
+    margin-top: auto;
+    margin-bottom: 1em;
+  }
+
+  &__sub-heading {
+    color: $light-neutro;
+    font-weight: 100;
+    font-size: 1rem;
+  }
+
+  &__text {
+    max-width: 58ch;
+    margin-bottom: 1em;
+  }
+
+  &__link {
+    align-self: center;    
+    margin-top: auto;
+    padding: 1rem 2rem;
+    border-radius: $main-radius;
+    background-color: $primary;
+    // background-image: 
+    //   url(../assets/waves.svg);
+    // background-size: 30%;
+    color: $dark;
+    font-family: inherit;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-decoration: none;
+    transform: translateY(-1rem);
+    transition: opacity .4s ease-out, transform .4s ease-out;
+    position: relative;
+    transform-style: preserve-3d;
+    z-index: 1;
+    
+    &::after {
+      content: '';
+      backface-visibility: hidden;
+      width: 100%;
+      height: .4rem;
+      border-radius: 0 0 $main-radius $main-radius;
+      background-color: $dark-primary;
+      transform: scale(.85) translateZ(-1px);
+      position: absolute;
+      bottom: -.4rem;
+      left: 0;
+    }
+
+    &:hover {
+      cursor: pointer; 
+      transform: translateY($main-spacing + .4rem) scale(1.05);
+      opacity: .5;
+    }
+  }
+}
+
+.projects { 
+  // background: red;
+  padding-top: 6rem;
+  position: relative;
+  top: -8rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  grid-gap: 2rem;
+}
+
+.footer {
+  padding: $main-spacing;
+  background-color: $dark-primary;
+  font-size: .8rem;
+}
