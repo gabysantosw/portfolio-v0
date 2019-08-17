@@ -28,13 +28,28 @@ section {
 // page
 .main {
   padding: $main-spacing;
+  // background-image: 
+  //   url(../assets/waves-group.svg),
+  //   url(../assets/waves-group.svg);
+  // background-size: 10rem;
+  // background-attachment: fixed;
+  // background-position: 110% 25vh, -10% 10vh;
+  // background-repeat: repeat-y;
+
   background-image: 
-    url(../assets/waves-group.svg),
-    url(../assets/waves-group.svg);
-  background-size: 10rem;
+    // radial-gradient(circle, $dark 10%, transparent),
+    url(../assets/test.svg);
+  // background-size: 100%, 15rem;
+  // background-size: 100%, 60%;
+  background-size: 60%;
   background-attachment: fixed;
-  background-position: 110% 25vh, -10% 10vh;
-  background-repeat: repeat-y;
+  background-position: -10% 0;
+  background-repeat: repeat;
+
+  // heropattern
+  // background-color: #ffffff;
+  //background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ff006c' fill-opacity='1'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
   position: relative;
 
   &::after {
@@ -85,7 +100,7 @@ section {
     font-weight: 700;
     letter-spacing: .1em;
     text-decoration: none;
-    transform: translateY(-1rem);
+    transform: translateY(-3rem);
     transition: opacity .4s ease-out, transform .4s ease-out;
     position: relative;
     transform-style: preserve-3d;
@@ -106,7 +121,7 @@ section {
 
     &:hover {
       cursor: pointer; 
-      transform: translateY(-1rem) scale(1.05);
+      transform: translateY(-3rem) scale(1.05);
       opacity: .5;
     }
   }
@@ -114,9 +129,9 @@ section {
 
 .projects { 
   // background: red;
-  padding-top: 6rem;
+  padding-top: 7rem;
   position: relative;
-  top: -8rem;
+  top: -10rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
   grid-gap: 2rem;
