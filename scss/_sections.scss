@@ -1,4 +1,8 @@
 // base 
+html {
+  
+}
+
 body {
   color: $light-neutro;
   font-family: 'Fira Code', monospace;
@@ -67,35 +71,60 @@ section {
   min-height: calc(100vh - #{$main-spacing * 2});
   display: flex;
   flex-direction: column;
+  align-items: center;
+
+  // base font 
+  font-size: 1rem;
+
+  @include for-tablet {
+    font-size: 1.6rem;
+  }
+
+  &__heading, &__text {
+    width: 100%;
+    max-width: 17rem;
+
+    @include for-tablet {
+      width: 100%;
+      max-width: 30rem;
+    }
+  }
 
   &__heading {
-    max-width: 18ch;
-    color: $light;
     margin-top: auto;
     margin-bottom: 1em;
+    color: $light;
+    font-size: 1.6em;
+    font-weight: 700;
   }
 
   &__sub-heading {
+    margin-top: .4em;
     color: $light-neutro;
     font-weight: 100;
-    font-size: 1rem;
+    font-size: .7em;
+    display: block;
   }
 
   &__text {
-    max-width: 58ch;
     margin-bottom: 1em;
+
+    @include for-tablet {
+      font-size: .8em;
+    }
   }
 
   &__link {
     align-self: center;    
     margin-top: auto;
-    padding: 1rem 2rem;
+    padding: 1rem 2rem 1rem 3rem;
     border-radius: $main-radius;
     background-color: $primary;
     // background-image: 
     //   url(../assets/waves.svg);
     // background-size: 30%;
     color: $dark;
+    font-size: 1rem;
     font-family: inherit;
     font-weight: 700;
     letter-spacing: .1em;
@@ -124,6 +153,14 @@ section {
       transform: translateY(-3rem) scale(1.05);
       opacity: .5;
     }
+
+    img {
+      height: 1.5rem;
+      position: absolute;
+      top: .8rem;
+      left: 1.2rem;
+      animation: stretch 1.5s ease-in-out infinite;
+    }
   }
 }
 
@@ -133,8 +170,8 @@ section {
   position: relative;
   top: -10rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-  grid-gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  grid-gap: 2rem 1rem;
 }
 
 .footer {
